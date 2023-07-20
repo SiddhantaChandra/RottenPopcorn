@@ -15,6 +15,7 @@ export default function StarRating({
   color = '#fcc419',
   size = 48,
   defaultRating = 0,
+  onSetRating,
 }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
@@ -39,7 +40,10 @@ export default function StarRating({
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
-            onClick={() => setRating(i + 1)}
+            onClick={() => {
+              setRating(i + 1);
+              onSetRating(i + 1);
+            }}
             full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
             onHoverIn={() => setTempRating(i + 1)}
             onHoverOut={() => setTempRating(0)}
@@ -76,7 +80,7 @@ function Star({ onClick, full, starStyle, color, onHoverIn, onHoverOut }) {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="#000"
+          stroke={color}
         >
           <path
             strokeLinecap="round"

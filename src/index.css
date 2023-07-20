@@ -50,8 +50,8 @@ body {
 }
 
 .box {
-  width: 42rem;
-  max-width: 42rem;
+  width: 45rem;
+  max-width: 45rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
   overflow: scroll;
@@ -257,7 +257,7 @@ body {
 }
 
 .details img {
-  width: 33%;
+  width: 50%;
 }
 
 .details-overview {
