@@ -5,8 +5,8 @@ function Images({ selectedId }) {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
+      setIsLoading(true);
       const url = `https://online-movie-database.p.rapidapi.com/title/get-images?tconst=${selectedId}&limit=99`;
       const options = {
         method: 'GET',
@@ -30,9 +30,9 @@ function Images({ selectedId }) {
       } catch (error) {
         console.error(error);
       }
+      setIsLoading(false);
     };
     fetchData();
-    setIsLoading(false);
   }, [selectedId]);
 
   return (
