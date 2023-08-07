@@ -66,7 +66,7 @@ export default function App() {
           setIsLoading(false);
         }
       }
-      if (query.length < 3) {
+      if (query.length < 2) {
         setMovies([]);
         setError('');
         return;

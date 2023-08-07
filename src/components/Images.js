@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 
 function Images({ selectedId }) {
   const [images, setImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       const url = `https://online-movie-database.p.rapidapi.com/title/get-images?tconst=${selectedId}&limit=99`;
       const options = {
@@ -30,16 +32,21 @@ function Images({ selectedId }) {
       }
     };
     fetchData();
+    setIsLoading(false);
   }, [selectedId]);
 
   return (
     <div>
       <h4>Images</h4>
-      <div>
-        {images.map((el) => {
-          return <img alt={el.caption} src={el.url} key={el.id} />;
-        })}
-      </div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div>
+          {images.map((el) => {
+            return <img alt={el.caption} src={el.url} key={el.id} />;
+          })}
+        </div>
+      )}
     </div>
   );
 }
