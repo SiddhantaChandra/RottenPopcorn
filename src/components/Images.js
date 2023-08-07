@@ -11,7 +11,8 @@ function Images({ selectedId }) {
       const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': process.env.api_key,
+          'X-RapidAPI-Key':
+            '67d094026bmsh028f38a79d5c096p128cd4jsne63a7e24582c',
           'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com',
         },
       };
